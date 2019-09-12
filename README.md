@@ -1,0 +1,2 @@
+# leetcode
+Record of codes
