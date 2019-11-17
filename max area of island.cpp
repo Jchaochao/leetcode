@@ -13,7 +13,7 @@ public:
                 if(grid[i][j]==1)
                 {
                     temp = 0;
-                    getArea(grid,i,j,temp);
+                    getArea(grid,i,j,temp,n,m);
                     if(temp>result)
                         result = temp;
                 }
@@ -21,20 +21,18 @@ public:
         return result;
     }
 private:
-    void getArea(vector<vector<int>>& grid, int i ,int j ,int& temp )
+    void getArea(vector<vector<int>>& grid, int i ,int j ,int& temp,int n, int m )
     {
         temp+=1;
         grid[i][j]=-1;
-        int n = grid.size();
-        int m = grid[0].size();
         if(i>0 && grid[i-1][j]==1)
-            getArea(grid,i-1,j,temp);
+            getArea(grid,i-1,j,temp,n,m);
         if(j>0 && grid[i][j-1]==1)
-            getArea(grid,i,j-1,temp);
+            getArea(grid,i,j-1,temp,n,m);
         if(i<n-1 && grid[i+1][j]==1)
-            getArea(grid,i+1,j,temp);
+            getArea(grid,i+1,j,temp,n,m);
         if(j<m-1 && grid[i][j+1]==1)
-            getArea(grid,i,j+1,temp);
+            getArea(grid,i,j+1,temp,n,m);
         return;
     }
 };
